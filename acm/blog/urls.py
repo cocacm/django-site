@@ -4,6 +4,5 @@ from .views import blog_list
 
 app_name = 'blog'
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='blog/index.html'), name='index'),
-    path('', blog_list, name='get_posts')
+    path('', blog_list, name='index'),
 ]
