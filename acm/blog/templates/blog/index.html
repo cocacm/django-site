@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Posts{% endblock %}</h1>
+    {% if True %}
+        Create Post Button
+        <!-- class="action", if user is an officer, create the link for blog.create_post -->
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {% for bp in blog_posts %}
+        <article class="post">
+            <header>
+                <div>
+                    <h1>{{ bp.title }}</h1>
+                    <div class="about">by [AUTHOR] on {{ bp.date_time }}</div>
+                </div>
+                {% if True %}
+                    Edit Button
+                    <!-- class="action", is user.id is the same as the author.id, create the link for blog.update_post -->
+                {% endif %}
+            </header>
+            {{ bp.content }}
+        </article>
+    {% empty %}
+        there are no entries
+    {% endfor %}
+{% endblock %}
